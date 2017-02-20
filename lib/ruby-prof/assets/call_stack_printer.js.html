@@ -61,10 +61,10 @@
 
   function setThresholdLI(li, threshold) {
     var img = li.firstChild;
-    var text = img.nextSibling.firstChild;
+    var text = img.nextSibling ? img.nextSibling.firstChild : '';
     var ul = findUlChild(li);
 
-    var visible = aboveThreshold(text.nodeValue, threshold) ? 1 : 0;
+    var visible = text && aboveThreshold(text.nodeValue, threshold) ? 1 : 0;
 
     var count = 0;
     if (ul) {
